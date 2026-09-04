@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запропонувати місто — Мої 3 найкращі міста світу</title>
+</head>
+<body>
+
+    <header>
+        <h1>Запропонувати місто для наступного огляду</h1>
+        <p>Знаєте круте місто, про яке варто розповісти? Заповніть коротку форму нижче!</p>
+
+        <nav>
+            <a href="index.html">&larr; На головну</a> |
+            <a href="berlin.html">Берлін</a> |
+            <a href="bratislava.html">Братислава</a> |
+            <a href="madrid.html">Мадрид</a>
+        </nav>
+    </header>
+
+        <section>
+            <h2>Форма зворотного зв'язку</h2>
+            <form action="#" method="post">
+                <p>
+                    <label for="user-name">Ваше ім'я: *</label><br>
+                    <input type="text" id="user-name" name="userName" placeholder="Наприклад: Руслан" required>
+                </p>
+                <p>
+                    <label for="user-email">Ваш Email: *</label><br>
+                    <input type="email" id="user-email" name="userEmail" placeholder="name@example.com" required>
+                </p>
+                <p>
+                    <label for="city-name">Назва міста: *</label><br>
+                    <input type="text" id="city-name" name="cityName" placeholder="Наприклад: Прага" required>
+                </p>
+                <p>
+                    <label for="country-name">Країна:</label><br>
+                    <input type="text" id="country-name" name="countryName" placeholder="Наприклад: Чехія">
+                </p>
+                <p>
+                    <label for="trip-type">Для чого найкраще підходить це місто?</label><br>
+                    <select id="trip-type" name="tripType">
+                        <option value="weekend">Поїздка на вихідні (City break)</option>
+                        <option value="culture">Культура та музеї</option>
+                        <option value="gastronomy">Гастрономічний тур та кава</option>
+                        <option value="nature">Природа та активний відпочинок</option>
+                    </select>
+                </p>
+                <p>
+                    <span>Чи відвідували ви це місто особисто?</span><br>
+                    <input type="radio" id="visited-yes" name="visited" value="yes" checked>
+                    <label for="visited-yes">Так, був особисто</label><br>
+                    <input type="radio" id="visited-no" name="visited" value="no">
+                    <label for="visited-no">Ні, але мрію поїхати</label>
+                </p>
+                <p>
+                    <label for="city-description">Чому саме це місто варто додати в блог? *</label><br>
+                    <textarea id="city-description" name="cityDescription" rows="5" cols="40" placeholder="Опишіть атмосферу, цікаві локації чи особливості міста..." required></textarea>
+                </p>
+                <p>
+                    <input type="checkbox" id="rules-agree" name="agree" required>
+                    <label for="rules-agree">Погоджуюся на публікацію моєї пропозиції в блозі *</label>
+                </p>
+                <p>
+                    <button type="submit">Надіслати пропозицію</button>
+                 
+                </p>
+
+            </form>
+        </section>
+
+    <footer>
+        <p>&copy; 2026. Блог «Мої 3 найкращі міста світу». Автор: Студент</p>
+        <p><a href="index.html">Повернутися на головну</a></p>
+    </footer>
+
+</body>
+</html>
