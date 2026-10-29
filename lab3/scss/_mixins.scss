@@ -1,23 +1,18 @@
 @use "sass:map";
 @use "variables" as v;
 
-
-
-// 1. Міксин для адаптивних медіа-запитів (Mobile First)
 @mixin respond-to($breakpoint) {
   @media (min-width: $breakpoint) {
     @content;
   }
 }
 
-// 2. Міксин для швидкого центрування через Flexbox
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// 3. Міксин для обмеження ширини та центрування контейнера
 @mixin container {
   width: min(100% - 32px, v.$container-max);
   margin-inline: auto;

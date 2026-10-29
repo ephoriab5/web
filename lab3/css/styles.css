@@ -73,11 +73,11 @@ body {
 }
 
 .hero {
-    position: relative; /* Головний контейнер для позиціонування */
+    position: relative; 
     width: 100%;
     max-width: 1800px;
     margin: 0 auto;
-    text-align: center; /* Центрує кнопку по горизонталі */
+    text-align: center; 
 }
 
 .hero img {
@@ -86,11 +86,10 @@ body {
     display: block;
 }
 
-
 .hero-btn {
     position: absolute;
-    bottom: 300px; /* Відступ від нижнього краю картинки (можеш підібрати точніше) */
-    background-color: #16a34a; /* Твій зелений колір */
+    bottom: 300px; 
+    background-color: #16a34a; 
     color: #ffffff;
     padding: 15px 28px;
     font-size: 30px;
@@ -99,7 +98,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     z-index: 10;
-    transform: translateX(-610px); /* Посуне приблизно на 65px лівіше від центру */
+    transform: translateX(-610px); 
 }
 
 .hero-btn:hover {
@@ -176,7 +175,6 @@ body {
     margin: 0 0 18px;
 }
 
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 428px));
@@ -215,7 +213,7 @@ body {
 }
 
 .alert-box {
-    background-color: #fef2f2;       /* Світло-рожевий/червонуватий фон */
+    background-color: #fef2f2;       
     border: 1px solid #fecaca;       
     border-radius: 12px;             
     padding: 20px 24px;              
@@ -252,7 +250,6 @@ body {
     margin-bottom: 16px;
 }
 
-
 .table-container {
     background: #ffffff;
     border: 1px solid #e5e7eb;
@@ -266,7 +263,6 @@ body {
     text-align: left;
     font-size: 14px;
 }
-
 
 .recent-measurements th {
     background-color: #f1f5f9; 
@@ -282,11 +278,9 @@ body {
     border-bottom: 1px solid #f3f4f6;
 }
 
-
 .recent-measurements tr:last-child td {
     border-bottom: none;
 }
-
 
 .danger-text {
     color: #dc2626 !important;
@@ -330,7 +324,6 @@ body {
     margin: 0 0 24px 0;
 }
 
-
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
@@ -354,7 +347,6 @@ body {
     grid-column: span 2; 
 }
 
-
 .order-form label {
     font-size: 13px;
     font-weight: 600;
@@ -365,7 +357,6 @@ body {
 .required {
     color: #dc2626; 
 }
-
 
 .order-form input,
 .order-form select,
@@ -390,7 +381,6 @@ body {
     resize: vertical;
     min-height: 120px;
 }
-
 
 .submit-btn {
     background-color: #16a34a;
@@ -427,7 +417,6 @@ body {
     gap: 24px;
 }
 
-/* Ліва колонка */
 .footer-logo {
     font-size: 20px;
     font-weight: 700;
@@ -440,7 +429,6 @@ body {
     color: #94a3b8;
 }
 
-/* Права колонка */
 .footer-right {
     display: flex;
     flex-direction: column;

@@ -1,8 +1,6 @@
 @use "variables" as vars;
 @use "mixins" as mix;
 
-// ─── Hero Button ─────────────────────────────────────────────────────────────
-// Mobile-first: кнопка під банером, без position:absolute, щоб не виїжджала
 .hero-btn {
   display: block;
   width: fit-content;
@@ -22,7 +20,6 @@
     background-color: vars.$color-green-dark;
   }
 
-  // Планшет: повертаємо absolute поверх банера
   @include mix.respond-to(vars.$bp-tablet) {
     position: absolute;
     bottom: 15%;
@@ -32,7 +29,6 @@
     font-size: 18px;
   }
 
-  // Десктоп: збільшуємо розмір кнопки
   @include mix.respond-to(vars.$bp-desktop) {
     bottom: 20%;
     left: vars.$space-10;
@@ -41,8 +37,6 @@
   }
 }
 
-
-// ─── Metric & Services Cards ─────────────────────────────────────────────────
 .metric-card,
 .services-card {
 	display: flex;
@@ -66,7 +60,7 @@
 
 .metric-value-text {
 	color: #252525;
-	font-size: 24px; // зменшено для мобільних, щоб не переповнювало картку
+	font-size: 24px;
 
 	@include mix.respond-to(vars.$bp-tablet) {
 		font-size: 28px;
@@ -99,14 +93,13 @@
 	font-weight: 700;
 }
 
-// ─── Services Section ────────────────────────────────────────────────────────
 .services {
 	padding-bottom: vars.$space-10;
 }
 
 .services-card {
-	min-height: 120px; // зменшено для мобільних
-	padding: vars.$space-5; // менший padding на мобільних
+	min-height: 120px;
+	padding: vars.$space-5;
 
 	@include mix.respond-to(vars.$bp-tablet) {
 		min-height: 150px;
@@ -116,7 +109,7 @@
 	h3 {
 		margin: 0 0 vars.$space-3;
 		color: #1d1d1d;
-		font-size: 18px; // менший розмір на мобільних
+		font-size: 18px;
 		font-weight: 700;
 		line-height: 1.3;
 
@@ -126,21 +119,20 @@
 	}
 
 	p {
-		max-width: 100%; // на мобільних — повна ширина
+		max-width: 100%;
 		margin: 0;
 		color: vars.$color-muted;
 		font-size: 14px;
 		line-height: 1.6;
 
 		@include mix.respond-to(vars.$bp-desktop) {
-			max-width: 240px; // обмеження лише на широких екранах
+			max-width: 240px;
 		}
 	}
 }
 
-// ─── Alert Box ───────────────────────────────────────────────────────────────
 .alert-box {
-	margin: vars.$space-6 vars.$space-4; // горизонтальний padding на мобільних
+	margin: vars.$space-6 vars.$space-4;
 	padding: vars.$space-5 vars.$space-5;
 	border: 1px solid #fecaca;
 	border-radius: vars.$radius-card;
@@ -167,12 +159,11 @@
 	}
 }
 
-// ─── Recent Measurements Table ───────────────────────────────────────────────
 .recent-measurements {
 	h2 {
 		margin-bottom: vars.$space-4;
 		color: #111827;
-		font-size: 20px; // менший заголовок на мобільних
+		font-size: 20px;
 		font-weight: 700;
 
 		@include mix.respond-to(vars.$bp-tablet) {
@@ -184,7 +175,7 @@
 		width: 100%;
 		border-collapse: collapse;
 		text-align: left;
-		font-size: 13px; // компактніший текст на мобільних
+		font-size: 13px;
 
 		@include mix.respond-to(vars.$bp-tablet) {
 			font-size: 14px;
@@ -196,7 +187,7 @@
 		background: #f1f5f9;
 		color: #1f2937;
 		font-weight: 600;
-		padding: vars.$space-3 vars.$space-4; // компактніше на мобільних
+		padding: vars.$space-3 vars.$space-4;
 
 		@include mix.respond-to(vars.$bp-tablet) {
 			padding: vars.$space-4 vars.$space-6;
@@ -206,7 +197,7 @@
 	td {
 		border-bottom: 1px solid #f3f4f6;
 		color: #374151;
-		padding: vars.$space-3 vars.$space-4; // компактніше на мобільних
+		padding: vars.$space-3 vars.$space-4;
 
 		@include mix.respond-to(vars.$bp-tablet) {
 			padding: vars.$space-4 vars.$space-6;
@@ -219,14 +210,13 @@
 }
 
 .table-container {
-	overflow-x: auto; // горизонтальний скрол ВСЕРЕДИНІ контейнера, а не сторінки
-	-webkit-overflow-scrolling: touch; // плавна прокрутка на iOS
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
 	border: 1px solid vars.$color-border;
 	border-radius: vars.$radius-card;
 	background: vars.$color-white;
 }
 
-// ─── Status Helpers ──────────────────────────────────────────────────────────
 .danger-text,
 .danger-status {
 	color: vars.$color-red !important;
@@ -245,9 +235,7 @@
 	font-weight: 500;
 }
 
-// ─── Order Form ──────────────────────────────────────────────────────────────
 .order-container {
-	// Mobile-first: компактні відступи
 	padding: vars.$space-5 vars.$space-4;
 	border: 1px solid vars.$color-border;
 	border-radius: vars.$radius-large;
@@ -264,7 +252,7 @@
 	h2 {
 		margin: 0 0 vars.$space-2;
 		color: #111827;
-		font-size: 20px; // менший заголовок на мобільних
+		font-size: 20px;
 		font-weight: 700;
 
 		@include mix.respond-to(vars.$bp-tablet) {
@@ -279,10 +267,9 @@
 	font-size: 14px;
 }
 
-// Mobile-first: 1 колонка → планшет: 2 колонки → десктоп: 3 колонки
 .form-row {
 	display: grid;
-	grid-template-columns: 1fr; // МОБІЛЬНА: одна колонка
+	grid-template-columns: 1fr;
 	gap: vars.$space-4;
 	margin-bottom: vars.$space-4;
 
@@ -313,16 +300,15 @@
 	}
 }
 
-// Mobile: textarea займає повну ширину
 .textarea-group {
 	grid-column: span 1;
 
 	@include mix.respond-to(vars.$bp-tablet) {
-		grid-column: span 1; // на планшеті — поряд з колонкою
+		grid-column: span 1;
 	}
 
 	@include mix.respond-to(vars.$bp-desktop) {
-		grid-column: span 2; // на десктопі — займає 2 з 3 колонок
+		grid-column: span 2;
 	}
 }
 
@@ -337,7 +323,7 @@
 	input,
 	select,
 	textarea {
-		width: 100%; // гарантує що поля не вилазять за межі
+		width: 100%;
 		padding: vars.$space-3 vars.$space-4;
 		border: 1px solid #d1d5db;
 		border-radius: vars.$radius-small;
@@ -365,7 +351,7 @@
 
 .submit-btn {
 	display: block;
-	width: 100%; // на мобільних — кнопка на всю ширину
+	width: 100%;
 	margin-top: vars.$space-4;
 	padding: vars.$space-3 vars.$space-6;
 	border: 0;
@@ -379,7 +365,7 @@
 
 	@include mix.respond-to(vars.$bp-tablet) {
 		display: inline-block;
-		width: auto; // на планшеті та вище — авто-ширина
+		width: auto;
 		padding: vars.$space-3 28px;
 	}
 
@@ -388,7 +374,6 @@
 	}
 }
 
-// ─── Footer Components ────────────────────────────────────────────────────────
 .footer-logo {
 	margin-bottom: vars.$space-1;
 	color: vars.$color-white;

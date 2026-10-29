@@ -1,8 +1,6 @@
 @use "variables" as vars;
 @use "mixins" as m;
 
-// ─── 1. Універсальний контейнер ───────────────────────────────────────────────
-// Mobile-first: вертикальний стовпець
 .container {
   @include m.container;
   display: flex;
@@ -11,7 +9,6 @@
   padding-bottom: vars.$space-4;
   gap: vars.$space-3;
 
-  // Планшет: горизонтальний ряд з відступами
   @include m.respond-to(vars.$bp-tablet) {
     flex-direction: row;
     align-items: center;
@@ -23,7 +20,6 @@
   }
 }
 
-// ─── 2. Header ────────────────────────────────────────────────────────────────
 .header {
   background: vars.$color-white;
   border-bottom: 1px solid vars.$color-border;
@@ -50,8 +46,6 @@
   font-weight: 700;
 }
 
-// ─── 3. Navigation ────────────────────────────────────────────────────────────
-// Mobile-first: вертикальний список посилань
 .main-nav {
   display: flex;
   flex-direction: column;
@@ -59,7 +53,6 @@
   gap: vars.$space-1;
   width: 100%;
 
-  // Планшет: горизонтальний рядок
   @include m.respond-to(vars.$bp-tablet) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -95,14 +88,12 @@
   }
 }
 
-// ─── 4. Hero Section ──────────────────────────────────────────────────────────
-// Mobile-first: статичний блок, кнопка під зображенням (через _components.scss)
 .hero {
   position: relative;
   width: 100%;
   max-width: vars.$content-width;
   margin: 0 auto;
-  overflow: hidden; // запобігає горизонтальному скролу від дочірніх елементів
+  overflow: hidden;
 
   img {
     width: 100%;
@@ -110,18 +101,15 @@
     display: block;
   }
 
-  // Планшет: мінімальна висота для розміщення кнопки поверх банера
   @include m.respond-to(vars.$bp-tablet) {
     min-height: 360px;
   }
 
-  // Десктоп: більший банер
   @include m.respond-to(vars.$bp-desktop) {
     min-height: 500px;
   }
 }
 
-// ─── 5. Section Titles ────────────────────────────────────────────────────────
 .monitoring,
 .services {
   padding-top: vars.$space-5;
@@ -158,8 +146,6 @@
   }
 }
 
-// ─── 6. Metrics Grid ─────────────────────────────────────────────────────────
-// Mobile-first: 1 колонка
 .metrics-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -167,13 +153,11 @@
   margin: 0 auto;
   padding: 0 vars.$space-4;
 
-  // Планшет: 3 колонки
   @include m.respond-to(vars.$bp-tablet) {
     grid-template-columns: repeat(3, 1fr);
     padding: 0 vars.$space-5;
   }
 
-  // Десктоп: 5 колонок
   @include m.respond-to(vars.$bp-desktop) {
     grid-template-columns: repeat(5, 1fr);
     max-width: vars.$content-width;
@@ -181,8 +165,6 @@
   }
 }
 
-// ─── 7. Services Grid ────────────────────────────────────────────────────────
-// Mobile-first: 1 колонка
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -190,21 +172,18 @@
   margin: 0 auto;
   padding: 0 vars.$space-4;
 
-  // Планшет: 2 колонки
   @include m.respond-to(vars.$bp-tablet) {
     grid-template-columns: repeat(2, 1fr);
     gap: vars.$space-5;
     padding: 0 vars.$space-5;
   }
 
-  // Десктоп: 4 колонки
   @include m.respond-to(vars.$bp-desktop) {
     grid-template-columns: repeat(4, 1fr);
     padding: 0;
   }
 }
 
-// ─── 8. Recent Measurements & Order Section wrappers ─────────────────────────
 .recent-measurements,
 .order-section {
   margin-top: vars.$space-8;
@@ -216,7 +195,6 @@
   }
 }
 
-// ─── 9. Footer ───────────────────────────────────────────────────────────────
 .site-footer {
   margin-top: vars.$space-10;
   padding: vars.$space-8 0;
@@ -228,7 +206,6 @@
   }
 }
 
-// Mobile-first: вертикально
 .footer-container {
   @include m.container;
   display: flex;
@@ -237,7 +214,6 @@
   gap: vars.$space-6;
   padding: 0 vars.$space-4;
 
-  // Планшет: горизонтально, space-between
   @include m.respond-to(vars.$bp-tablet) {
     flex-direction: row;
     align-items: flex-end;
@@ -257,7 +233,6 @@
   }
 }
 
-// Mobile-first: вертикальний список
 .footer-nav {
   display: flex;
   flex-direction: column;
@@ -266,7 +241,6 @@
   padding: 0;
   list-style: none;
 
-  // Планшет: горизонтально
   @include m.respond-to(vars.$bp-tablet) {
     flex-direction: row;
     gap: vars.$space-6;
