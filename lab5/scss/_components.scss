@@ -1,0 +1,418 @@
+@use "variables" as vars;
+@use "mixins" as mix;
+
+// ─── Hero Button ─────────────────────────────────────────────────────────────
+// Mobile-first: кнопка під банером, без position:absolute, щоб не виїжджала
+.hero-btn {
+  display: block;
+  width: fit-content;
+  margin: vars.$space-4 auto 0;
+  padding: vars.$space-3 vars.$space-6;
+  background-color: vars.$color-green;
+  color: vars.$color-white;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: vars.$radius-small;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: vars.$color-green-dark;
+  }
+
+  // Планшет: повертаємо absolute поверх банера
+  @include mix.respond-to(vars.$bp-tablet) {
+    position: absolute;
+    bottom: 15%;
+    left: vars.$space-8;
+    margin: 0;
+    padding: vars.$space-4 vars.$space-8;
+    font-size: 18px;
+  }
+
+  // Десктоп: збільшуємо розмір кнопки
+  @include mix.respond-to(vars.$bp-desktop) {
+    bottom: 20%;
+    left: vars.$space-10;
+    padding: vars.$space-5 vars.$space-10;
+    font-size: 20px;
+  }
+}
+
+
+// ─── Metric & Services Cards ─────────────────────────────────────────────────
+.metric-card,
+.services-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 1px solid vars.$color-border;
+	border-radius: vars.$radius-card;
+	background: vars.$color-white;
+}
+
+.metric-card {
+	padding: vars.$space-5;
+}
+
+.metric-value {
+	margin: 0;
+	color: #252525;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.metric-value-text {
+	color: #252525;
+	font-size: 24px; // зменшено для мобільних, щоб не переповнювало картку
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		font-size: 28px;
+	}
+
+	@include mix.respond-to(vars.$bp-desktop) {
+		font-size: 32px;
+	}
+}
+
+.metric-title {
+	margin-bottom: vars.$space-2;
+	color: #6b7280;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.metric-desc {
+	color: vars.$color-muted;
+	font-size: 14px;
+}
+
+.badge-success {
+	max-width: 80px;
+	padding: vars.$space-1 vars.$space-2;
+	border-radius: vars.$radius-small;
+	background: vars.$color-green-light;
+	color: vars.$color-green-text;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+// ─── Services Section ────────────────────────────────────────────────────────
+.services {
+	padding-bottom: vars.$space-10;
+}
+
+.services-card {
+	min-height: 120px; // зменшено для мобільних
+	padding: vars.$space-5; // менший padding на мобільних
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		min-height: 150px;
+		padding: vars.$space-6;
+	}
+
+	h3 {
+		margin: 0 0 vars.$space-3;
+		color: #1d1d1d;
+		font-size: 18px; // менший розмір на мобільних
+		font-weight: 700;
+		line-height: 1.3;
+
+		@include mix.respond-to(vars.$bp-tablet) {
+			font-size: 21px;
+		}
+	}
+
+	p {
+		max-width: 100%; // на мобільних — повна ширина
+		margin: 0;
+		color: vars.$color-muted;
+		font-size: 14px;
+		line-height: 1.6;
+
+		@include mix.respond-to(vars.$bp-desktop) {
+			max-width: 240px; // обмеження лише на широких екранах
+		}
+	}
+}
+
+// ─── Alert Box ───────────────────────────────────────────────────────────────
+.alert-box {
+	margin: vars.$space-6 vars.$space-4; // горизонтальний padding на мобільних
+	padding: vars.$space-5 vars.$space-5;
+	border: 1px solid #fecaca;
+	border-radius: vars.$radius-card;
+	background: #fef2f2;
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		max-width: 1770px;
+		margin: vars.$space-6 auto;
+		padding: vars.$space-5 vars.$space-6;
+	}
+
+	h3 {
+		margin: 0 0 vars.$space-2;
+		color: vars.$color-red;
+		font-size: 18px;
+		font-weight: 700;
+	}
+
+	p {
+		margin: 0;
+		color: #1f2937;
+		font-size: 14px;
+		line-height: 1.5;
+	}
+}
+
+// ─── Recent Measurements Table ───────────────────────────────────────────────
+.recent-measurements {
+	h2 {
+		margin-bottom: vars.$space-4;
+		color: #111827;
+		font-size: 20px; // менший заголовок на мобільних
+		font-weight: 700;
+
+		@include mix.respond-to(vars.$bp-tablet) {
+			font-size: 22px;
+		}
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+		font-size: 13px; // компактніший текст на мобільних
+
+		@include mix.respond-to(vars.$bp-tablet) {
+			font-size: 14px;
+		}
+	}
+
+	th {
+		border-bottom: 1px solid vars.$color-border;
+		background: #f1f5f9;
+		color: #1f2937;
+		font-weight: 600;
+		padding: vars.$space-3 vars.$space-4; // компактніше на мобільних
+
+		@include mix.respond-to(vars.$bp-tablet) {
+			padding: vars.$space-4 vars.$space-6;
+		}
+	}
+
+	td {
+		border-bottom: 1px solid #f3f4f6;
+		color: #374151;
+		padding: vars.$space-3 vars.$space-4; // компактніше на мобільних
+
+		@include mix.respond-to(vars.$bp-tablet) {
+			padding: vars.$space-4 vars.$space-6;
+		}
+	}
+
+	tr:last-child td {
+		border-bottom: 0;
+	}
+}
+
+.table-container {
+	overflow-x: auto; // горизонтальний скрол ВСЕРЕДИНІ контейнера, а не сторінки
+	-webkit-overflow-scrolling: touch; // плавна прокрутка на iOS
+	border: 1px solid vars.$color-border;
+	border-radius: vars.$radius-card;
+	background: vars.$color-white;
+}
+
+// ─── Status Helpers ──────────────────────────────────────────────────────────
+.danger-text,
+.danger-status {
+	color: vars.$color-red !important;
+}
+
+.danger-text {
+	font-weight: 600;
+}
+
+.danger-status {
+	font-weight: 500;
+}
+
+.success-status {
+	color: vars.$color-green !important;
+	font-weight: 500;
+}
+
+// ─── Order Form ──────────────────────────────────────────────────────────────
+.order-container {
+	// Mobile-first: компактні відступи
+	padding: vars.$space-5 vars.$space-4;
+	border: 1px solid vars.$color-border;
+	border-radius: vars.$radius-large;
+	background: vars.$color-white;
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		padding: vars.$space-6 vars.$space-8;
+	}
+
+	@include mix.respond-to(vars.$bp-desktop) {
+		padding: vars.$space-8 vars.$space-10;
+	}
+
+	h2 {
+		margin: 0 0 vars.$space-2;
+		color: #111827;
+		font-size: 20px; // менший заголовок на мобільних
+		font-weight: 700;
+
+		@include mix.respond-to(vars.$bp-tablet) {
+			font-size: 24px;
+		}
+	}
+}
+
+.order-subtitle {
+	margin: 0 0 vars.$space-5;
+	color: vars.$color-muted;
+	font-size: 14px;
+}
+
+// Mobile-first: 1 колонка → планшет: 2 колонки → десктоп: 3 колонки
+.form-row {
+	display: grid;
+	grid-template-columns: 1fr; // МОБІЛЬНА: одна колонка
+	gap: vars.$space-4;
+	margin-bottom: vars.$space-4;
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		grid-template-columns: repeat(2, 1fr);
+		gap: vars.$space-5;
+	}
+
+	@include mix.respond-to(vars.$bp-desktop) {
+		grid-template-columns: repeat(3, 1fr);
+		gap: vars.$space-6;
+		margin-bottom: vars.$space-5;
+	}
+}
+
+.form-group,
+.form-group-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group-column {
+	grid-column: span 1;
+	gap: vars.$space-4;
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		gap: vars.$space-5;
+	}
+}
+
+// Mobile: textarea займає повну ширину
+.textarea-group {
+	grid-column: span 1;
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		grid-column: span 1; // на планшеті — поряд з колонкою
+	}
+
+	@include mix.respond-to(vars.$bp-desktop) {
+		grid-column: span 2; // на десктопі — займає 2 з 3 колонок
+	}
+}
+
+.order-form {
+	label {
+		margin-bottom: vars.$space-1;
+		color: #374151;
+		font-size: 13px;
+		font-weight: 600;
+	}
+
+	input,
+	select,
+	textarea {
+		width: 100%; // гарантує що поля не вилазять за межі
+		padding: vars.$space-3 vars.$space-4;
+		border: 1px solid #d1d5db;
+		border-radius: vars.$radius-small;
+		outline: none;
+		background: vars.$color-white;
+		color: #1f2937;
+		font-size: 14px;
+		transition: border-color 0.2s;
+		box-sizing: border-box;
+
+		&:focus {
+			border-color: #2563eb;
+		}
+	}
+
+	textarea {
+		min-height: 120px;
+		resize: vertical;
+	}
+}
+
+.required {
+	color: vars.$color-red;
+}
+
+.submit-btn {
+	display: block;
+	width: 100%; // на мобільних — кнопка на всю ширину
+	margin-top: vars.$space-4;
+	padding: vars.$space-3 vars.$space-6;
+	border: 0;
+	border-radius: vars.$radius-small;
+	background: vars.$color-green;
+	color: vars.$color-white;
+	font-size: 15px;
+	font-weight: 600;
+	transition: background-color 0.2s;
+	cursor: pointer;
+
+	@include mix.respond-to(vars.$bp-tablet) {
+		display: inline-block;
+		width: auto; // на планшеті та вище — авто-ширина
+		padding: vars.$space-3 28px;
+	}
+
+	&:hover {
+		background: vars.$color-green-dark;
+	}
+}
+
+// ─── Footer Components ────────────────────────────────────────────────────────
+.footer-logo {
+	margin-bottom: vars.$space-1;
+	color: vars.$color-white;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.footer-slogan {
+	color: #94a3b8;
+	font-size: 13px;
+}
+
+.footer-nav a {
+	color: #cbd5e1;
+	font-size: 14px;
+	text-decoration: none;
+	transition: color 0.2s;
+
+	&:hover {
+		color: vars.$color-white;
+	}
+}
+
+.footer-copy {
+	color: #64748b;
+	font-size: 12px;
+}
