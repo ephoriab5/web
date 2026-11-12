@@ -1,0 +1,274 @@
+@use "variables" as vars;
+@use "mixins" as m;
+
+// ─── 1. Універсальний контейнер ───────────────────────────────────────────────
+// Mobile-first: вертикальний стовпець
+.container {
+  @include m.container;
+  display: flex;
+  flex-direction: column;
+  padding-top: vars.$space-4;
+  padding-bottom: vars.$space-4;
+  gap: vars.$space-3;
+
+  // Планшет: горизонтальний ряд з відступами
+  @include m.respond-to(vars.$bp-tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 48px;
+    gap: vars.$space-4;
+  }
+}
+
+// ─── 2. Header ────────────────────────────────────────────────────────────────
+.header {
+  background: vars.$color-white;
+  border-bottom: 1px solid vars.$color-border;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.logo {
+  color: #00072e;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.subtitle {
+  color: vars.$color-muted;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+// ─── 3. Navigation ────────────────────────────────────────────────────────────
+// Mobile-first: вертикальний список посилань
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: vars.$space-1;
+  width: 100%;
+
+  // Планшет: горизонтальний рядок
+  @include m.respond-to(vars.$bp-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    gap: vars.$space-1;
+    margin-left: auto;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: vars.$space-2 vars.$space-4;
+    border-bottom: 3px solid transparent;
+    color: vars.$color-text;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    @include m.respond-to(vars.$bp-tablet) {
+      min-height: 48px;
+      padding: 10px 18px;
+    }
+
+    &:hover,
+    &.active {
+      border-bottom-color: vars.$color-green;
+      background: rgba(22, 163, 74, 0.04);
+      color: vars.$color-green;
+    }
+  }
+}
+
+// ─── 4. Hero Section ──────────────────────────────────────────────────────────
+// Mobile-first: статичний блок, кнопка під зображенням (через _components.scss)
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: vars.$content-width;
+  margin: 0 auto;
+  overflow: hidden; // запобігає горизонтальному скролу від дочірніх елементів
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  // Планшет: мінімальна висота для розміщення кнопки поверх банера
+  @include m.respond-to(vars.$bp-tablet) {
+    min-height: 360px;
+  }
+
+  // Десктоп: більший банер
+  @include m.respond-to(vars.$bp-desktop) {
+    min-height: 500px;
+  }
+}
+
+// ─── 5. Section Titles ────────────────────────────────────────────────────────
+.monitoring,
+.services {
+  padding-top: vars.$space-5;
+}
+
+.section-title,
+.services-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: start;
+
+  @include m.respond-to(vars.$bp-tablet) {
+    font-size: 24px;
+  }
+}
+
+.section-title {
+  margin-top: vars.$space-5;
+  margin-bottom: vars.$space-4;
+  padding-left: vars.$space-4;
+
+  @include m.respond-to(vars.$bp-tablet) {
+    padding-left: 0;
+  }
+}
+
+.services-title {
+  margin: 0 auto vars.$space-4;
+  padding-left: vars.$space-4;
+
+  @include m.respond-to(vars.$bp-tablet) {
+    padding-left: 0;
+    margin-bottom: 18px;
+  }
+}
+
+// ─── 6. Metrics Grid ─────────────────────────────────────────────────────────
+// Mobile-first: 1 колонка
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-4;
+  margin: 0 auto;
+  padding: 0 vars.$space-4;
+
+  // Планшет: 3 колонки
+  @include m.respond-to(vars.$bp-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 vars.$space-5;
+  }
+
+  // Десктоп: 5 колонок
+  @include m.respond-to(vars.$bp-desktop) {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: vars.$content-width;
+    padding: 0;
+  }
+}
+
+// ─── 7. Services Grid ────────────────────────────────────────────────────────
+// Mobile-first: 1 колонка
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: vars.$space-4;
+  margin: 0 auto;
+  padding: 0 vars.$space-4;
+
+  // Планшет: 2 колонки
+  @include m.respond-to(vars.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: vars.$space-5;
+    padding: 0 vars.$space-5;
+  }
+
+  // Десктоп: 4 колонки
+  @include m.respond-to(vars.$bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+  }
+}
+
+// ─── 8. Recent Measurements & Order Section wrappers ─────────────────────────
+.recent-measurements,
+.order-section {
+  margin-top: vars.$space-8;
+  padding: 0 vars.$space-4;
+
+  @include m.respond-to(vars.$bp-tablet) {
+    margin-top: vars.$space-10;
+    padding: 0;
+  }
+}
+
+// ─── 9. Footer ───────────────────────────────────────────────────────────────
+.site-footer {
+  margin-top: vars.$space-10;
+  padding: vars.$space-8 0;
+  background: vars.$color-footer;
+  color: #94a3b8;
+
+  @include m.respond-to(vars.$bp-tablet) {
+    padding: vars.$space-10 0;
+  }
+}
+
+// Mobile-first: вертикально
+.footer-container {
+  @include m.container;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: vars.$space-6;
+  padding: 0 vars.$space-4;
+
+  // Планшет: горизонтально, space-between
+  @include m.respond-to(vars.$bp-tablet) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: vars.$space-3;
+
+  @include m.respond-to(vars.$bp-tablet) {
+    align-items: flex-end;
+  }
+}
+
+// Mobile-first: вертикальний список
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-3;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // Планшет: горизонтально
+  @include m.respond-to(vars.$bp-tablet) {
+    flex-direction: row;
+    gap: vars.$space-6;
+  }
+}

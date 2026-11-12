@@ -1,0 +1,37 @@
+@use "variables" as vars;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: vars.$color-page;
+	color: vars.$color-text;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+button,
+select {
+	cursor: pointer;
+}
